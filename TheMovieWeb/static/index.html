@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Movie DB</title>
+    <script  type="text/javascript" src = "/static/index.js"></script>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        var slideIndex = 0;
+        window.onload = DisplayTrend("trend");
+        window.onload = DisplayAirtv("airtv");
+
+    </script>
+
+</head>
+<body>
+    <div id="page_container">
+        <div id = "opac">
+            <div class="header" id = "head">
+                <h1>THE MOVIE DB</h1>
+            </div>
+            <div class="wrapper">
+                <div class="sidebar" id = "slide">
+                    <ul>
+                        <li><a id = "home" href="javascript:void(0)" onclick="home_page()">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10230;</a></li>
+                        <li><a id = "search" href="javascript:void(0)" onclick="search_page()" >&nbsp;Search&nbsp;&nbsp;&nbsp;&nbsp;&#10230;</a> </li>
+                    </ul>
+                </div>
+                <div class="v_line">
+                    <div class="content">
+                        <div id = "t_movie" class="trend_movie">
+                            <h1  class="trend_title">Trending Movies</h1>
+                            <div class="slide fade">
+                                <img id="trending0"></img>
+                                <div class="text">
+                                    <h1 id = "trendtext0"></h1>
+                                </div>
+                            </div>
+                            <div class="slide fade">
+                                <img id="trending1"></img>
+                                <div class="text">
+                                    <h1 id = "trendtext1"></h1>
+                                </div>
+                            </div>
+                            <div class="slide fade">
+                                <img id="trending2"></img>
+                                <div class="text">
+                                    <h1 id = "trendtext2"></h1>
+                                </div>
+                            </div>
+                            <div class="slide fade">
+                                <img id="trending3"></img>
+                                <div class="text">
+                                    <h1 id = "trendtext3"></h1>
+                                </div>
+                            </div>
+                            <div class="slide fade">
+                                <img id="trending4"></img>
+                                <div class="text">
+                                    <h1 id = "trendtext4"></h1>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id = "a_tv" class="airtv_today">
+                            <h1 class="tvheader">TV Shows On-Air Today</h1>
+                            <div class="tvslide fade">
+                                <img id="airtv0"></img>
+                                <div class="TVtext">
+                                    <h1 id = "text0"></h1>
+                                </div>
+                            </div>
+                            <div class="tvslide fade">
+                                <img id="airtv1"></img>
+                                <div class="TVtext">
+                                    <h1 id = "text1"></h1>
+                                </div>
+                            </div>
+                            <div class="tvslide fade">
+                                <img id="airtv2"></img>
+                                <div class="TVtext">
+                                    <h1 id = "text2"></h1>
+                                </div>
+                            </div>
+                            <div class="tvslide fade">
+                                <img id="airtv3"></img>
+                                <div class="TVtext">
+                                    <h1 id = "text3"></h1>
+                                </div>
+                            </div>
+                            <div class="tvslide fade">
+                                <img id="airtv4"></img>
+                                <div class="TVtext">
+                                    <h1 id = "text4"></h1>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="search_box" class="search">
+                        <h1 id="search_title">Search</h1>
+                        <label>Keyword</label><span class="star">*</span><input type="text" id="keyword" ><br>
+                        <div class="cate">
+                            <label >Category</label><span class="star">*</span>
+                            <select  id="options">
+                                <option value=""></option>
+                                <option value="Movies">Movies</option>
+                                <option value="TV Shows">TV Shows</option>
+                                <option value="Movies and TV Shows">Movies and TV Shows</option>
+                            </select>
+                        </div>
+                        <button id="submit" onclick="check_input()">Search</button>
+                        <button id="clear" onclick="clear_input()">Clear</button>
+                    </div>
+                    <div id="results" class="res">
+                        <div id="result_content">
+                            <p id="show_result">Showing results...</p>
+                            <p id="no_result_found">No results found</p>
+                            <div class="display_info">
+                                <div class="poster_section" id = "poster"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer">
+                <p>Developed by Jingwei</p>
+                <p>Powered by TMDB</p>
+            </div>
+        </div>
+        <div id = "scrollbar">
+            <div id="popup_page"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

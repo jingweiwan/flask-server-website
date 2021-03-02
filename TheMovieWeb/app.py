@@ -5,7 +5,7 @@ import json
 import requests
 app = Flask(__name__, static_url_path = '/static')
 CORS(app)
-api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
+api_key = "" #Paste your API key here
 @app.route("/", methods = ["GET","POST"])
 def index():
 
@@ -16,8 +16,7 @@ def get_TrendingMovie_data():
     if request.method=="GET":
         media_type = "movie"
         time = "week"
-        api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
-        req = requests.get("https://api.themoviedb.org/3/trending/" + media_type + "/" + time + "?api_key=130d23c5892d2f09760dbbd12cf9b4a5")
+        req = requests.get("https://api.themoviedb.org/3/trending/" + media_type + "/" + time + "?api_key="+api_key)
         return req.json()
 
 
@@ -25,15 +24,12 @@ def get_TrendingMovie_data():
 def get_AirTV_data():
     if request.method=="GET":
         media_type = "tv"
-        time = "week"
-        api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
         req = requests.get("https://api.themoviedb.org/3/"+media_type+"/airing_today/?api_key="+api_key)
         return req.json()
 
 @app.route("/genre/<media>", methods = ["GET"])
 def get_genre_data(media):
     if request.method=="GET":
-        api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
         req = requests.get("https://api.themoviedb.org/3/genre/"+media+"/list?api_key="+api_key+"&language=en-US")
         return req.json()
 
@@ -43,7 +39,6 @@ def get_Search_data(keyword,category):
         media_type = "movie"
         keyword=keyword.replace(' ',"%20")
         category=category.replace(' ',"%20")
-        api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
 
         if category == "Movies":
             media_type = "movie"
@@ -62,7 +57,6 @@ def get_Search_data(keyword,category):
 @app.route("/detail/<media>&<id>", methods = ["GET"])
 def get_detail_data(media,id):
     if request.method=="GET":
-        api_key = "130d23c5892d2f09760dbbd12cf9b4a5"
         req = requests.get("https://api.themoviedb.org/3/"+media+"/"+id+"?api_key="+api_key+"&language=en-US")
         return req.json()
 
